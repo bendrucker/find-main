@@ -23,9 +23,9 @@ findMain(cwd);
 
 ### `findMain([cwd])` -> `String` / `Boolean`
 
-`findMain` starts at `cwd` and looks upwards until it finds a `package.json`. When it finds one, it returns the `"main"` entry, coerced to a relative path. This means `"main": "src"` becomes the more explicit `./src`.
+`findMain` starts at `cwd` and looks upwards until it finds a `package.json`. When it finds one, it returns the `"main"` entry as an absolute path.
 
-If no package is found, an exception is thrown. If a package is found but no `"main"` entry is available, `false` is returned. Otherwise, the `main` path is returned.
+If no package is found, an exception is thrown. If a package is found but no `"main"` entry is available, `false` is returned. Otherwise, the absolute `main` path is returned.
 
 #### `cwd`
 

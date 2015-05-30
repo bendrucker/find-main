@@ -1,7 +1,7 @@
 'use strict'
 
 import {sync as mothershipSync} from 'mothership'
-import {enforce as enforceRelative} from 'dot-slash'
+import {resolve, dirname} from 'path'
 
 export default function findMain (cwd) {
   cwd = cwd || process.cwd()
@@ -9,5 +9,5 @@ export default function findMain (cwd) {
   if (!pkg) throw new Error(`No package.json found from "${cwd}"`)
   const {main} = pkg.pack
   if (!main) return false
-  return enforceRelative(main)
+  return resolve(dirname(pkg.path), main)
 }

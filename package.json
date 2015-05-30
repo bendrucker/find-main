@@ -22,7 +22,6 @@
     "find"
   ],
   "dependencies": {
-    "dot-slash": "~1.1.0",
     "mothership": "~0.3.0"
   },
   "devDependencies": {

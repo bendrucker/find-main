@@ -1,13 +1,22 @@
 'use strict'
 
 import test from 'tape'
-import {resolve} from 'path'
+import {resolve, isAbsolute, relative} from 'path'
 import proxyquire from 'proxyquire'
 
 test((t) => {
   let findMain = require('../')
-  t.equal(findMain(resolve(__dirname, 'fixtures/normal')), './src')
-  t.equal(findMain(resolve(__dirname, 'fixtures/dot-slash')), './src')
+  let main, cwd
+
+  cwd = resolve(__dirname, 'fixtures/normal')
+  main = findMain(cwd)
+  t.ok(isAbsolute(main))
+  t.equal(relative(cwd, main), 'src')
+
+  cwd = resolve(__dirname, 'fixtures/dot-slash')
+  main = findMain(cwd)
+  t.ok(isAbsolute(main))
+  t.equal(relative(cwd, main), 'src')
 
   findMain = proxyquire('../', {
     mothership: {
