@@ -1,6 +1,6 @@
 {
   "name": "find-main",
-  "main": "./src",
+  "main": "./release",
   "version": "1.0.1",
   "description": "Find the \"main\" path from package.json",
   "license": "MIT",
