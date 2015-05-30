@@ -1,7 +1,7 @@
 {
   "name": "find-main",
   "main": "./src",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Find the \"main\" path from package.json",
   "license": "MIT",
   "repository": "bendrucker/find-main",
