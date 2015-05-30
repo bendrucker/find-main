@@ -11,12 +11,12 @@ test((t) => {
   cwd = resolve(__dirname, 'fixtures/normal')
   main = findMain(cwd)
   t.ok(isAbsolute(main))
-  t.equal(relative(cwd, main), 'src')
+  t.equal(relative(cwd, main), 'src/index.js')
 
   cwd = resolve(__dirname, 'fixtures/dot-slash')
   main = findMain(cwd)
   t.ok(isAbsolute(main))
-  t.equal(relative(cwd, main), 'src')
+  t.equal(relative(cwd, main), 'src/foo.js')
 
   findMain = proxyquire('../', {
     mothership: {
