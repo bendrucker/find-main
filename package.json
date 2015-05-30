@@ -23,17 +23,16 @@
   ],
   "dependencies": {
     "dot-slash": "~1.1.0",
-    "mothership": "~0.3.0",
-    "proxyquire": "~1.5.0",
-    "require-module": "~0.1.0"
+    "mothership": "~0.3.0"
   },
   "devDependencies": {
     "babel": "^5.0.0",
     "babel-tape-runner": "*",
-    "tape": "^4.0.0",
-    "standard": "bendrucker/standard#babel",
+    "proxyquire": "~1.5.0",
     "publicist": "~4.0.0",
-    "publicist-es5": "~1.0.0"
+    "publicist-es5": "~1.0.0",
+    "standard": "bendrucker/standard#babel",
+    "tape": "^4.0.0"
   },
   "publicist": {
     "builds": {
