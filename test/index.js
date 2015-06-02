@@ -1,29 +1,30 @@
 'use strict'
 
-import test from 'tape'
-import {resolve, isAbsolute, relative} from 'path'
-import proxyquire from 'proxyquire'
+var test = require('tape')
+var path = require('path')
+var proxyquire = require('proxyquire')
+var escape = require('escape-string-regexp')
 
-test((t) => {
-  let findMain = require('../')
-  let main, cwd
+test(function (t) {
+  var findMain = require('../')
+  var main, cwd
 
-  cwd = resolve(__dirname, 'fixtures/normal')
+  cwd = path.resolve(__dirname, 'fixtures/normal')
   main = findMain(cwd)
-  t.ok(isAbsolute(main))
-  t.equal(relative(cwd, main), 'src/index.js')
+  t.ok(path.isAbsolute(main))
+  t.equal(path.relative(cwd, main), 'src/index.js')
 
-  cwd = resolve(__dirname, 'fixtures/dot-slash')
+  cwd = path.resolve(__dirname, 'fixtures/dot-slash')
   main = findMain(cwd)
-  t.ok(isAbsolute(main))
-  t.equal(relative(cwd, main), 'src/foo.js')
+  t.ok(path.isAbsolute(main))
+  t.equal(path.relative(cwd, main), 'src/foo.js')
 
   findMain = proxyquire('../', {
     mothership: {
-      sync: () => false
+      sync: function () {return false}
     }
   })
-  t.throws(findMain.bind(null, resolve(__dirname, 'fixtures/no-package')), RegExp.escape('No package.json found from'))
+  t.throws(findMain.bind(null, path.resolve(__dirname, 'fixtures/no-package')), escape('No package.json found from'))
 
   t.end()
 })
