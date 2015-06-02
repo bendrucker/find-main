@@ -21,13 +21,13 @@ findMain(cwd);
 
 ## API
 
-### `findMain([cwd])` -> `String` / `Boolean`
+#### `findMain([cwd])` -> `String` / `Boolean`
 
 `findMain` starts at `cwd` and looks upwards until it finds a `package.json`. When it finds one, it returns the `"main"` entry as an absolute path.
 
 If no package is found, an exception is thrown. If a package is found but no `"main"` entry is available, `false` is returned. Otherwise, the absolute `main` path is returned.
 
-#### `cwd`
+##### cwd
 
 Type: `string`  
 Default: `process.cwd()`
