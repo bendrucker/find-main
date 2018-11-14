@@ -1,4 +1,4 @@
-# find-main [![Build Status](https://travis-ci.org/bendrucker/find-main.svg?branch=master)](https://travis-ci.org/bendrucker/find-main)
+# find-main [![Build Status](https://travis-ci.org/bendrucker/find-main.svg?branch=master)](https://travis-ci.org/bendrucker/find-main) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/find-main.svg)](https://greenkeeper.io/)
 
 > Find the "main" path from package.json
 
